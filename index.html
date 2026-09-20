@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de DOM y Eventos</title>
+    <style>
+        /* Estilos generales (CSS) */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            /* Transición suave para el cambio de fondo del Ejercicio 3 */
+            transition: background-color 0.5s ease; 
+        }
+
+        .contenedor {
+            background: white;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #contador-valor {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        #resultado-form {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ejercicio 1: Contador -->
+    <div class="contenedor">
+        <h2>Ejercicio 1: Contador</h2>
+        <div id="contador-valor">0</div>
+        <button id="btn-decrementar">Decrementar</button>
+        <button id="btn-reiniciar">Reiniciar</button>
+        <button id="btn-incrementar">Incrementar</button>
+    </div>
+
+    <!-- Ejercicio 2: Formulario sin recarga -->
+    <div class="contenedor">
+        <h2>Ejercicio 2: Formulario</h2>
+        <form id="mi-formulario">
+            <input type="text" id="nombre" placeholder="Ingresa tu Nombre" required>
+            <input type="email" id="email" placeholder="Ingresa tu Email" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="resultado-form"></p>
+    </div>
+
+    <!-- Ejercicio 3: Cambiar color de fondo -->
+    <div class="contenedor">
+        <h2>Ejercicio 3: Cambiar Fondo</h2>
+        <button id="btn-color">Cambiar Color Aleatorio</button>
+    </div>
+
+    <!-- Scripts (JavaScript) -->
+    <script>
+        // ==========================================
+        // EJERCICIO 1: Lógica del Contador
+        // ==========================================
+        let contador = 0; // Variable para almacenar el estado del número
+        const displayContador = document.getElementById('contador-valor');
+        
+        document.getElementById('btn-incrementar').addEventListener('click', () => {
+            contador++;
+            displayContador.textContent = contador; // Actualiza el DOM
+        });
+
+        document.getElementById('btn-decrementar').addEventListener('click', () => {
+            contador--;
+            displayContador.textContent = contador; // Actualiza el DOM
+        });
+
+        document.getElementById('btn-reiniciar').addEventListener('click', () => {
+            contador = 0;
+            displayContador.textContent = contador; // Actualiza el DOM
+        });
+
+        // ==========================================
+        // EJERCICIO 2: Lógica del Formulario
+        // ==========================================
+        const formulario = document.getElementById('mi-formulario');
+        const displayResultado = document.getElementById('resultado-form');
+
+        formulario.addEventListener('submit', function(event) {
+            // event.preventDefault() evita que la página se recargue al enviar el formulario
+            event.preventDefault(); 
+            
+            // Obtenemos los valores de los inputs
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+
+            // Mostramos los datos en el párrafo
+            displayResultado.textContent = `Datos recibidos: ${nombre} (${email})`;
+            
+            // Opcional: Limpiar el formulario después de enviarlo
+            formulario.reset();
+        });
+
+        // ==========================================
+        // EJERCICIO 3: Lógica del Color Aleatorio
+        // ==========================================
+        const btnColor = document.getElementById('btn-color');
+
+        btnColor.addEventListener('click', () => {
+            // Genera un número hexadecimal aleatorio de 6 dígitos
+            // Math.random() * 16777215 abarca todos los colores hex posibles (FFFFFF en decimal)
+            const colorAleatorio = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+            
+            // Aplica el color al fondo del body
+            document.body.style.backgroundColor = colorAleatorio;
+        });
+    </script>
+</body>
+</html>
