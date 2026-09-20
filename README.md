@@ -25,3 +25,8 @@ Dado que es un proyecto frontend estático, no requiere la instalación de depen
    ```bash
    git clone [https://github.com/TU_USUARIO/TU_REPOSITORIO.git](https://github.com/TU_USUARIO/TU_REPOSITORIO.git)
    ```
+2. Ingresa Directamente por este link:
+
+```
+ https://samuelibanezz.github.io/EjerciciosDOM/
+```

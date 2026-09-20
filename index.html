@@ -1,3 +1,7 @@
+<!--Objetivo:
+Practicar la manipulación del DOM y el manejo de eventos en JavaScript.
+Construye una página web (un solo archivo HTML con CSS y JavaScript incluidos) que incluya los siguientes elementos interactivos:-->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -97,9 +101,10 @@
 
     <!-- Scripts (JavaScript) -->
     <script>
-        // ==========================================
-        // EJERCICIO 1: Lógica del Contador
-        // ==========================================
+        //Ejercicio 1: Contador
+        //Crea un contador con un número que se muestre en pantalla y tres botones: "Incrementar", "Decrementar" y "Reiniciar".
+        //Al hacer clic en cada botón, el número debe actualizarse en la página.
+
         let contador = 0; // Variable para almacenar el estado del número
         const displayContador = document.getElementById('contador-valor');
         
@@ -118,9 +123,9 @@
             displayContador.textContent = contador; // Actualiza el DOM
         });
 
-        // ==========================================
-        // EJERCICIO 2: Lógica del Formulario
-        // ==========================================
+        //Ejercicio 2: Formulario sin recarga
+        //Crea un formulario con dos campos: "Nombre" y "Email". Al enviar el formulario (evento submit), debe mostrar los datos ingresados en un párrafo debajo del formulario, sin recargar la página (usa event.preventDefault()).
+
         const formulario = document.getElementById('mi-formulario');
         const displayResultado = document.getElementById('resultado-form');
 
@@ -139,9 +144,8 @@
             formulario.reset();
         });
 
-        // ==========================================
-        // EJERCICIO 3: Lógica del Color Aleatorio
-        // ==========================================
+        //Ejercicio 3: Cambiar color de fondo
+        //Agrega un botón que, al hacer clic, cambie el color de fondo de la página a un color aleatorio (puedes usar colores predefinidos o colores hexadecimales aleatorios).
         const btnColor = document.getElementById('btn-color');
 
         btnColor.addEventListener('click', () => {
